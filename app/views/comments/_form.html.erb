@@ -1,0 +1,18 @@
+<%# form_for([@post, @post.comments.build]) do |f| %>
+<%= simple_form_for([@post, @post.comments.build]) do |f| %>
+	<div class="container-input">
+		<label for="" class="label">Nome</label>
+		<br>
+		<%= f.text_field :name, label: false %>
+	</div>
+	<br>
+	<div class="container-input">
+		<label for="" class="label">Comentário</label><br>
+		<%= f.text_area :body, label: false %>
+	</div>
+
+	<br>
+	<p>
+		<%= f.submit "Postar Comentário" %>
+	</p>
+<% end %>

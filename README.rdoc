@@ -1,0 +1,12 @@
+== README
+
+Blog feito em rails a fins de estudo.
+
+
+* Ruby version: 2.1.5
+
+* Rails version: 4.2.1
+
+
+Contato: marcobonuto@yahoo.com
+

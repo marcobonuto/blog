@@ -1,0 +1,35 @@
+<%= simple_form_for(@post, html: { class: 'blog-form' }) do |f| %>
+	<% if @post.errors.any? %>
+		<div id="errors">
+			<h2><%= pluralize(@post.errors.count, "error") %> prevented this post from saving</h2>
+			<ul>	
+			<%# @post.errors.full_messages.each do |msg| %>
+				<!--<li><%# msg %></li>-->
+			<%# end %>
+			</ul>
+		</div>
+	<% end %>
+	
+	<div class="container-input">
+		<label for="" class="label">Título</label>
+		<%= f.input :title, label: false, required: true %>
+	</div>
+	
+	<br>
+
+	<div class="container-input">
+		<label for="" class="label">Conteúdo</label>
+		<%= f.input :body, label: false, required: true %>
+	</div>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
+
+<%= content_for :footer do %>
+<script type="text/javascript">
+  var blog = new Blog();
+</script>
+<% end %>

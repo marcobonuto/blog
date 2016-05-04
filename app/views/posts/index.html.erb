@@ -1,0 +1,12 @@
+<% @posts.each do |post| %>
+	<div class="post_wrapper">
+		<h2 class="title"><%= link_to post.title, post %></h2>
+		<p class="date"> <%= l(post.created_at, format: "%d, %B, %Y") %></p>
+	</div>
+<% end %>
+
+<%= content_for :footer do %>
+<script type="text/javascript">
+  var blog = new Blog();
+</script>
+<% end %>

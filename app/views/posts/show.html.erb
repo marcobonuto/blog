@@ -1,0 +1,35 @@
+<div id="post_content">
+	<h1 class="title">
+		<%= @post.title %>
+	</h1>	
+
+	<p class="date">
+		Publicado há <em><span class="days"><%= time_ago_in_words(@post.created_at) %></span></em> atráz
+	</p>
+
+	<p class="body">
+		<%= @post.body %>
+	</p>
+	
+	<br>
+	<% if user_signed_in? %>
+		<%= link_to 'Editar', edit_post_path(@post), class: "button-small" %>
+		<%= link_to 'Deletar', post_path(@post), method: :delete, class: "button-small button-delete", data: { confirm: 'Voce tem certeza?' } %>
+	<% end %>	
+
+	<div id="comments">
+		
+		<% if @post.comments.count <= 1 %>
+			<h2><%= @post.comments.count %> Comentário</h2>
+		<% else %>
+			<h2><%= @post.comments.count %> Comentários</h2>
+		<% end %>
+
+		<%= render @post.comments %>
+
+		<h3>Adicione um comentário:</h3>
+
+		<%= render "comments/form" %>
+		
+	</div>
+</div>
