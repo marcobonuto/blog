@@ -39,12 +39,13 @@
 	<div id="main_content">
 		<div id="header">
 			<% if current_page?(root_path) %>
-				<p>Hey, seja bem vindo! :)</p>
+				<p>Hey, <%= current_user.name if user_signed_in? %> seja bem vindo! :)</p>
 			<% elsif current_page?(about_path) %>
 				<p>Sobre nós</p>
 			<% else %>
 				<%= link_to "Home", root_path %>
 			<% end %>
+			<%# binding.pry %>
 
 			<% if user_signed_in? %>
 				<div class="buttons">
